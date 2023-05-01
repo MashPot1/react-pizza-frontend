@@ -1,0 +1,128 @@
+@import "../variables";
+
+.pizza-block {
+  width: 280px;
+  text-align: center;
+  margin-bottom: 65px;
+
+  &__image {
+    width: 260px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1%;
+    margin-bottom: 20px;
+  }
+
+  &__selector {
+    text-align: center;
+    display: flex;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 6px;
+    width: 15vw;
+    ul {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+
+      li {
+        padding: 16px;
+        flex: 1;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        @include noselect();
+        &.active {
+          background: #ffffff;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+          border-radius: 5px;
+          cursor: auto;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  &__price {
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.015em;
+  }
+}
+
+@keyframes anvil {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+    box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+  }
+}
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  &__title {
+    justify-self: top;
+    text-align: center;
+    position: flex;
+    font-size: 2vw;
+    font-weight: 900;
+    letter-spacing: 1%;
+    margin-bottom: 20px;
+    max-height: 5vw;
+  }
+
+  &__content {
+    // position: relative;
+    width: 45vw;
+    min-height: 60vh;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+  }
+
+  &__image {
+    width: 20vw;
+    height: 20vw;
+    position: relative;
+  }
+
+  &__description {
+    margin-bottom: 40vh;
+    text-align: left;
+    text-justify: auto;
+  }
+}
