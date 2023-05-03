@@ -2,17 +2,26 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import PizzaBlock from "./PizzaBlock/index";
+import PizzaCreateBlock from "./PizzaCreateBlock/index";
 import Skeleton from "./PizzaBlock/Skeleton";
 import { fetchPizzas } from "../redux/slices/pizzasSlice";
-import { fetchProfile } from "../redux/slices/authSlice";
+import {
+  selectIsAuth,
+  selectIsAdmin,
+  fetchProfile,
+} from "../redux/slices/authSlice";
 
 export const Home = () => {
   const dispatch = useDispatch();
+
+  const isAuth = useSelector(selectIsAuth);
+  const isAdmin = useSelector(selectIsAdmin);
   const pizzas = useSelector((state) => state.pizzas);
 
   const isPizzasLoading = pizzas.status === "loading";
   React.useEffect(() => {
     dispatch(fetchPizzas());
+    dispatch(fetchProfile());
     // eslint-disable-next-line
   }, []);
 
@@ -26,9 +35,9 @@ export const Home = () => {
             {isPizzasLoading
               ? [...Array(8)].map((_, index) => <Skeleton key={index} />)
               : pizzas.data.map((obj, index) => (
-                  <PizzaBlock key={index} {...obj} />
+                  <PizzaBlock key={obj.pizzaId} {...obj} />
                 ))}
-            {/* {user.data.accessRights ? <span>Редактировать</span> : <></>}; */}
+            {isAdmin ? <PizzaCreateBlock /> : ""}
           </div>
         </div>
       </div>

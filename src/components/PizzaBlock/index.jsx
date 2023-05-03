@@ -38,17 +38,17 @@ function PizzaBlock({ pizzaId, sizes, prices, imageUrl, title, description }) {
 
   return (
     <>
-      <Popup
-        trigger={
-          <Link to="">
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div className="pizza-block">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div className="pizza-block">
+          <Popup
+            trigger={
+              <Link to="">
                 <img
                   className="pizza-block__image"
                   src={imageUrl}
@@ -61,52 +61,53 @@ function PizzaBlock({ pizzaId, sizes, prices, imageUrl, title, description }) {
                     <span>Подробнее</span>
                   </div>
                 </div>
-              </div>
-            </div>
-          </Link>
-        }
-      >
-        {(close) => (
-          <div className="modal" onClick={close}>
-            <div
-              className="modal__content"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div
-                style={{
-                  alignItems: "center",
-                  justifyItems: "center",
-                  display: "grid",
-                }}
-              >
-                <img className="modal__image" src={imageUrl} alt="Pizza" />
-                <div className="pizza-block__selector">
-                  <ul>
-                    {sizes.map((obj, index) => (
-                      <li
-                        key={index}
-                        onClick={() => setActiveSize(index)}
-                        className={activeSize === index ? "active" : ""}
-                      >
-                        {obj} см.
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div
-                style={{
-                  alignItems: "center",
-                  justifyItems: "center",
-                  display: "grid",
-                }}
-              >
-                <h4 className="modal__title">{title}</h4>
-                <h4 className="modal__description">{description}</h4>
+              </Link>
+            }
+          >
+            {(close) => (
+              <div className="modal" onClick={close}>
                 <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
+                  className="modal__content"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  {/* {isAdmin ? (
+                  <div
+                    style={{
+                      alignItems: "center",
+                      justifyItems: "center",
+                      display: "grid",
+                    }}
+                  >
+                    <img className="modal__image" src={imageUrl} alt="Pizza" />
+                    <div className="pizza-block__selector">
+                      <ul>
+                        {sizes.map((obj, index) => (
+                          <li
+                            key={index}
+                            onClick={() => setActiveSize(index)}
+                            className={activeSize === index ? "active" : ""}
+                          >
+                            {obj} см.
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      alignItems: "center",
+                      justifyItems: "center",
+                      display: "grid",
+                    }}
+                  >
+                    <h4 className="modal__title">{title}</h4>
+                    <h4 className="modal__description">{description}</h4>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      {/* {isAdmin ? (
                   <button
                     className="button button--profile button--outline"
                     style={{ fill: "white" }}
@@ -139,32 +140,34 @@ function PizzaBlock({ pizzaId, sizes, prices, imageUrl, title, description }) {
                 ) : (
                   ""
                 )} */}
-                  <button
-                    className="button"
-                    style={{
-                      height: 50,
-                      fontSize: 14,
-                      marginRight: 10,
-                      marginLeft: 10,
-                      marginBottom: 1,
-                    }}
-                    onClick={() => onClickAdd()}
-                  >
-                    Добавить в корзину за{" "}
-                    <span style={{ fontSize: 16, fontWeight: 800 }}>
-                      {prices[activeSize]}
-                    </span>{" "}
-                    ₽
-                  </button>
-                  <button className="button button--close" onClick={close}>
-                    Закрыть
-                  </button>
+                      <button
+                        className="button"
+                        style={{
+                          height: 50,
+                          fontSize: 14,
+                          marginRight: 10,
+                          marginLeft: 10,
+                          marginBottom: 1,
+                        }}
+                        onClick={() => onClickAdd()}
+                      >
+                        Добавить в корзину за{" "}
+                        <span style={{ fontSize: 16, fontWeight: 800 }}>
+                          {prices[activeSize]}
+                        </span>{" "}
+                        ₽
+                      </button>
+                      <button className="button button--close" onClick={close}>
+                        Закрыть
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        )}
-      </Popup>
+            )}
+          </Popup>
+        </div>
+      </div>
     </>
   );
 }

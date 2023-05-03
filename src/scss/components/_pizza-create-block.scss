@@ -1,13 +1,17 @@
 @import "../variables";
 
-.pizza-block {
-  width: 280px;
+.pizza-create-block {
+  display: flex;
+  max-width: 280px;
+  height: 422px;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   margin-bottom: 65px;
-
-  &__image {
-    width: 260px;
-  }
+  border: solid;
+  border-width: 5px;
+  border-color: #fe5f1e;
+  border-radius: 10px;
 
   &__title {
     font-size: 20px;
@@ -16,14 +20,27 @@
     margin-bottom: 20px;
   }
 
+  &__svg {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1%;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 168px;
+    margin-bottom: 168px;
+  }
+
   &__selector {
     text-align: center;
     display: flex;
-    background-color: #f3f3f3;
     border-radius: 10px;
-    flex-direction: row;
+    flex-direction: column;
     padding: 6px;
     width: 15vw;
+    background: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+    cursor: auto;
     ul {
       display: flex;
       flex: 1;
@@ -59,6 +76,19 @@
     font-size: 22px;
     line-height: 27px;
     letter-spacing: 0.015em;
+  }
+
+  &__add-size {
+    background: #fff;
+    border: solid;
+    border-width: 1px;
+    border-color: #fe5f1e;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -114,7 +144,7 @@
     animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
   }
 
-  &__image {
+  &__imageurl {
     width: 20vw;
     height: 20vw;
     position: relative;

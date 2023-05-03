@@ -21,17 +21,21 @@ export const Profile = () => {
         <div className="container">
           <div className="content__top"></div>
           <h2 className="content__title">Мои заказы</h2>
-          <div className="content__items">
-            {isOrdersLoading ? (
-              [...Array(8)].map((_, index) => <Skeleton key={index} />)
-            ) : !orders.data.length ? (
-              <OrdersEmpty />
-            ) : (
-              orders.data.map((obj, index) => (
+          {isOrdersLoading ? (
+            <div className="content__items">
+              {[...Array(8)].map((_, index) => (
+                <Skeleton key={index} />
+              ))}
+            </div>
+          ) : !orders.data.length ? (
+            <OrdersEmpty />
+          ) : (
+            <div className="content__items">
+              {orders.data.map((obj, index) => (
                 <OrderBlock key={index} {...obj} />
-              ))
-            )}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>

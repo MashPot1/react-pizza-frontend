@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsAuth, logout } from "../redux/slices/authSlice";
 
 import logoSvg from "../assets/img/pizza-logo.svg";
 function Header() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isAuth = useSelector(selectIsAuth);
   const isMounted = React.useRef(false);
   const { data, totalPrice } = useSelector((state) => state.cart);
@@ -25,6 +26,7 @@ function Header() {
     if (window.confirm("Вы действительно хотите выйти?")) {
       dispatch(logout());
       window.localStorage.removeItem("token");
+      navigate("/");
     }
   };
   return (
@@ -104,10 +106,6 @@ function Header() {
             <>
               <Link to="/login" className="button button--login">
                 <span>Войти</span>
-              </Link>
-
-              <Link to="/signup" className="button button--login">
-                <span>Зарегистрироваться</span>
               </Link>
             </>
           )}

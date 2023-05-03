@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAuth, selectIsAuth } from "../../redux/slices/authSlice";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 import styles from "./Login.module.scss";
 
@@ -19,7 +19,7 @@ export const Login = () => {
 
   const onSubmit = async (values) => {
     const data = await dispatch(fetchAuth(values));
-    
+
     if ("token" in data.payload) {
       return window.localStorage.setItem("token", data.payload.token);
     }
@@ -62,6 +62,14 @@ export const Login = () => {
             </button>
           </div>
         </form>
+
+        <h3 style={{ textAlign: "center", marginTop: 20, marginBottom: 20 }}>
+          У вас нет аккаунта?
+        </h3>
+
+        <Link to="/signup" className="button button--login">
+          <span>Зарегистрироваться</span>
+        </Link>
       </div>
     </>
   );

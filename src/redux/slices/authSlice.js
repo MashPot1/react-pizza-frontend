@@ -72,7 +72,7 @@ const authSlice = createSlice({
   },
 });
 export const selectIsAuth = (state) => Boolean(state.auth.data);
-export const selectIsAdmin = (state) => Boolean(state.auth.data.accessRights);
+export const selectIsAdmin = (state) => Boolean(state.auth.data?.accessRights);
 
 export const authReducer = authSlice.reducer;
 export const { logout } = authSlice.actions;

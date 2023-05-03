@@ -10,15 +10,16 @@ import SignUp from "./components/Auth/SignUp";
 import Profile from "./components/Profile/Profile";
 import Home from "./components/Home";
 import Cart from "./components/Cart";
+import NotFound from "./pages/NotFound";
 import { fetchProfile, selectIsAuth } from "./redux/slices/authSlice";
 
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    dispatch(fetchProfile());
-    // eslint-disable-next-line
-  }, []);
+  // React.useEffect(() => {
+  //   dispatch(fetchProfile());
+  //   // eslint-disable-next-line
+  // }, []);
 
   return (
     <div className="wrapper">
@@ -41,6 +42,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
