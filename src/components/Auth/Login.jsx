@@ -19,12 +19,12 @@ export const Login = () => {
 
   const onSubmit = async (values) => {
     const data = await dispatch(fetchAuth(values));
-
-    if ("token" in data.payload) {
-      return window.localStorage.setItem("token", data.payload.token);
-    }
+    console.log(Boolean(data.payload));
     if (!data.payload) {
       return alert("Не удалось авторизоваться!");
+    }
+    if ("token" in data.payload) {
+      return window.localStorage.setItem("token", data.payload.token);
     }
   };
 
