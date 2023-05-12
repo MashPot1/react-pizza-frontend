@@ -5,6 +5,19 @@
   outline: none;
   font-family: "Nunito", Roboto, system-ui, Tahoma, sans-serif;
   box-sizing: border-box;
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    background-color: #ffffff;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #d3d3d3;
+    &:hover {
+      background-color: #929292;
+    }
+  }
 }
 
 html {

@@ -24,7 +24,7 @@
   --toastify-text-color-error: #fff;
   --toastify-spinner-color: #616161;
   --toastify-spinner-color-empty-area: #fff;
-  --toastify-color-progress-light: linear-gradient(to right, #fe5f1e, #ffa582);
+  --toastify-color-progress-light: linear-gradient(to right, #ffffff, #fe5f1e);
   --toastify-color-progress-dark: #bb86fc;
   --toastify-color-progress-info: var(--toastify-color-info);
   --toastify-color-progress-success: var(--toastify-color-success);
@@ -183,7 +183,7 @@
   color: var(--toastify-text-color-warning);
   background: var(--toastify-color-warning);
 }
-.Toastify__toast-theme--colored.Toastify__toast--error {
+.Toastify__toast-theme--error {
   color: var(--toastify-text-color-error);
   background: var(--toastify-color-error);
 }
@@ -209,7 +209,7 @@
 .Toastify__progress-bar-theme--colored.Toastify__progress-bar--info,
 .Toastify__progress-bar-theme--colored.Toastify__progress-bar--success,
 .Toastify__progress-bar-theme--colored.Toastify__progress-bar--warning,
-.Toastify__progress-bar-theme--colored.Toastify__progress-bar--error {
+.Toastify__progress-bar-theme--error {
   background: var(--toastify-color-transparent);
 }
 

@@ -1,20 +1,27 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
-import OrderBlock from "./OrderBlock";
-import OrdersEmpty from "./OrdersEmpty";
-import Skeleton from "./Skeleton";
-import { fetchOrders } from "../../redux/slices/ordersSlice";
+import OrderBlock from "../components/Profile/OrderBlock";
+import OrdersEmpty from "../components/Profile/OrdersEmpty";
+import Skeleton from "../components/Profile/Skeleton";
+import { fetchOrders } from "../redux/slices/ordersSlice";
+import { fetchProfile } from "../redux/slices/authSlice";
 
 export const Profile = () => {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.orders);
+  const user = useSelector((state) => state.auth);
 
   const isOrdersLoading = orders.status === "loading";
   React.useEffect(() => {
     dispatch(fetchOrders());
+    dispatch(fetchProfile());
     // eslint-disable-next-line
   }, []);
+  if (user.status === "error") {
+    return <Navigate to="/" />;
+  }
   return (
     <>
       <div className="content">

@@ -4,8 +4,8 @@ import { toast } from "react-toastify";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "../axios";
 
-import { CartItem } from "./Cart/CartItem";
-import CartEmpty from "./Cart/CartEmpty";
+import { CartItem } from "../components/Cart/CartItem";
+import CartEmpty from "../components/Cart/CartEmpty";
 import { clearItems } from "../redux/slices/cartSlice";
 
 function Cart() {

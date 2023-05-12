@@ -1,12 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSignUp, selectIsAuth } from "../../redux/slices/authSlice";
+import {
+  fetchSignUp,
+  fetchProfile,
+  selectIsAuth,
+} from "../../redux/slices/authSlice";
 import { Navigate } from "react-router-dom";
 
 import styles from "./Login.module.scss";
 
-export const SignUp = () => {
+export const SignUpBlock = () => {
   const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
   const {
@@ -30,6 +34,10 @@ export const SignUp = () => {
     }
   };
 
+  React.useEffect(() => {
+    dispatch(fetchProfile());
+    // eslint-disable-next-line
+  }, []);
   if (isAuth) {
     return <Navigate to="/" />;
   }
@@ -54,6 +62,7 @@ export const SignUp = () => {
               //   type="password"
               helpertext={errors.password?.message}
               {...register("password", { required: "Укажите пароль" })}
+              minLength={8}
             />
             <label className={styles.formLabel}>Пароль</label>
           </div>
@@ -69,4 +78,4 @@ export const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpBlock;

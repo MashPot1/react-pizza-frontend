@@ -44,21 +44,26 @@
     justify-content: space-between;
     @media (max-width: 645px) {
       flex-direction: column;
+      justify-content: center;
       .header__cart {
         margin-top: 20px;
+        margin-right: 0px;
       }
 
       .header__profile {
         margin-top: 20px;
-        margin-left: -20px;
+        margin-left: 0px;
       }
 
       .button--login {
-        margin-top: 10px;
+        margin-top: 20px;
         margin-left: 0;
       }
 
-      
+      .button--logout {
+        margin-top: 20px;
+        margin-left: 0px;
+      }
     }
   }
 }

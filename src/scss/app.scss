@@ -6,16 +6,6 @@
 
 body {
   background-color: $background;
-  ::-webkit-scrollbar {
-    width: 12px;
-    background-color: #ffffff;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: #707070;
-  }
 }
 
 .wrapper {
@@ -60,10 +50,11 @@ body {
   }
 
   &__items {
+    // background-color: #000;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 11px;
+    grid-gap: 10px;
     justify-items: center;
 
     @media (max-width: 1400px) {

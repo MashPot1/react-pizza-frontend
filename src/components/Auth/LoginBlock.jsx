@@ -1,13 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAuth, selectIsAuth } from "../../redux/slices/authSlice";
+import {
+  fetchAuth,
+  fetchProfile,
+  selectIsAuth,
+} from "../../redux/slices/authSlice";
 import { Navigate, Link } from "react-router-dom";
 
 import styles from "./Login.module.scss";
 
-export const Login = () => {
-  const isAuth = useSelector(selectIsAuth);
+export const LoginBlock = () => {
   const dispatch = useDispatch();
   const {
     register,
@@ -27,7 +30,11 @@ export const Login = () => {
       return window.localStorage.setItem("token", data.payload.token);
     }
   };
-
+  React.useEffect(() => {
+    dispatch(fetchProfile());
+    // eslint-disable-next-line
+  }, []);
+  const isAuth = useSelector(selectIsAuth);
   if (isAuth) {
     return <Navigate to="/" />;
   }
@@ -75,4 +82,4 @@ export const Login = () => {
   );
 };
 
-export default Login;
+export default LoginBlock;

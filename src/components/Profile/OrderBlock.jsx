@@ -5,8 +5,6 @@ import React from "react";
 import { OrderItem } from "./OrderItem";
 
 function OrderBlock(props) {
-  console.log(props);
-
   const totalCount = props.pizzas.reduce((sum, obj) => sum + obj.count, 0);
   const date = Date.parse(props.createdAt);
   const dateReal = new Date(date);
@@ -27,10 +25,10 @@ function OrderBlock(props) {
     var hh = date.getHours();
 
     var mn = date.getMinutes();
-    console.log(hh);
 
     return `${hh}:${mn}`;
   };
+
   return (
     <>
       <Popup
@@ -41,6 +39,9 @@ function OrderBlock(props) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                backgroundColor: "#fff",
+                paddingLeft: "1vw",
+                paddingRight: "1vw",
               }}
             >
               <div className="pizza-block">
