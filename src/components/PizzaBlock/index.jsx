@@ -93,7 +93,7 @@ function PizzaBlock({ pizzaId, sizes, prices, imageUrl, title, description }) {
       );
     }
     setIsEdit(false);
-    await dispatch(updatePizza(values));
+    dispatch(updatePizza(values));
     dispatch(fetchPizzas());
   };
 
